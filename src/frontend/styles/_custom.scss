@@ -1,0 +1,57 @@
+@import 'variables';
+
+/** bootstrap overrides **/
+
+$white: #fefefe;
+$red: #f04747;
+$yellow: #faa61a;
+$green: #43b581;
+$dark: #202225;
+
+$primary: $color-blurple;
+$secondary: #292b2f;
+
+//$link-color: #1392ca;
+$link-hover-color: lighten($primary, 5%) !default;
+
+$border-color: $dark;
+$font-weight-base: 500;
+
+$body-color: #dcddde;
+$body-bg: #36393f;
+$secondary-bg: #2f3136;
+
+$input-bg: $dark;
+$input-border-width: 0;
+$input-color: #b9bbbe;
+$input-focus-box-shadow: none;
+
+$card-bg: $secondary;
+
+$btn-font-weight: $font-weight-base;
+$btn-focus-width: 0;
+$btn-focus-box-shadow: none;
+$btn-border-width: 0;
+
+$modal-content-bg: $body-bg;
+$modal-header-border-color: rgba(0, 0, 0, .25);
+$modal-footer-border-width: 0;
+
+$progress-bg: #2f3136;
+
+$close-color: $body-color;
+$close-text-shadow: null;
+
+$custom-forms-transition: none;
+$component-active-color: $dark;
+$component-active-bg: $white;
+
+$custom-control-indicator-active-bg: $secondary;
+$custom-control-indicator-focus-box-shadow: none;
+$custom-control-indicator-focus-border-color: none;
+
+$list-group-bg: none;
+
+/** rct-checkbox overrides **/
+
+$rct-icon-color: #000;

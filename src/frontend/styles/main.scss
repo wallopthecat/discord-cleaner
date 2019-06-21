@@ -1,0 +1,50 @@
+@import 'custom.scss';
+
+$mdi-font-path: '~@mdi/font/fonts';
+@import '~@mdi/font/scss/materialdesignicons.scss';
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~react-checkbox-tree/src/scss/react-checkbox-tree.scss';
+@import '~simplebar/dist/simplebar.css';
+
+@import 'helpers.scss';
+@import 'checkbox-tree.scss';
+@import 'sidebar.scss';
+@import 'log.scss';
+@import 'header.scss';
+@import 'progress.scss';
+
+html, body {
+  height: 100%;
+  min-width: 432px;
+}
+
+#root {
+  height: 100%;
+}
+
+.container-fluid {
+  height: 100vh;
+}
+
+#modal-root {
+  position: absolute;
+  z-index: 999;
+}
+
+.modal {
+  background-color: rgba(0,0,0,0.75);
+  display: block;
+  overflow: auto;
+}
+
+.modal-footer {
+  background-color: darken($modal-content-bg, 5%);
+}
+
+.close {
+  text-shadow: none;
+}
+
+.spinner-wrapper {
+  width: 100%;
+}

@@ -1,0 +1,26 @@
+.sidebar-wrapper {
+  background-color: $secondary-bg;
+  min-width: 320px;
+  min-height: 320px;
+}
+
+.channel-list-ctrl {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+
+.channel-list-search {
+  padding-right: 2rem;
+}
+
+.form-control-clear {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.channel-list-wrapper {
+  overflow-y: auto;
+  height: 0; // fix chrome scrolling "quirk"
+}

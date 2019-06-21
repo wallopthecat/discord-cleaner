@@ -1,0 +1,29 @@
+.log {
+  overflow-y: auto;
+  height: 0; // fix chrome scrolling "quirk"
+  margin: 1rem 0;
+  min-height: 256px;
+}
+
+.log-message-list {
+  padding: 0.5rem 1rem;
+
+  li {
+    &:not(:first-child) {
+      border-top: 1px solid $body-bg;
+    }
+  }
+}
+
+.log-message {
+  margin-top: 1rem;
+}
+
+.log-message-time {
+  max-width: 120px;
+  font-size: 14px;
+}
+
+.log-message-text {
+  margin-bottom: 0;
+}
