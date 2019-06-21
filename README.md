@@ -1,12 +1,8 @@
 
 <p align="center">
-  <img width="128" height="128" src="">
+  <img width="192" height="192" src="https://user-images.githubusercontent.com/46288829/59956401-19ab3c80-945e-11e9-965c-3dd65fd0d91f.png">
 </p>
 <h2 align="center">Discord Cleaner</h2>
-
-<p align="center">
-
-</p>
 
 Discord Cleaner is a free and open-source tool to clean your messages. It can remove your messages across Discord - providing you with more control over your privacy and personal information. This application was developed for educational purposes.
 
@@ -53,9 +49,9 @@ The app runs a local web server that serves the front-end interface — allowing
 
 There are two main reasons for this design decision:
 1. Discord Cleaner could be running for hours. Electron's additional memory usage isn't really acceptable when the app is going to be minimized the entire time.
-2. Theoretically, the web server structure allows the app to be hosted remotely. In other words, you could install Discord Cleaner on a server and have it run automatically — persistently cleaning messages.**
+2. Theoretically, the web server structure allows the app to be hosted remotely. In other words, you could install Discord Cleaner on a server and have it run automatically — persistently cleaning messages.*
 
-***Discord Cleaner is absolutely not ready to be run remotely. **Do not do it.** I need to make significant security improvements before that it is a viable option.*
+**Discord Cleaner is absolutely not ready to be run remotely. **Do not do it.** I need to make significant security improvements before that it is a viable option.*
 
 ## Acknowledgements
 
@@ -63,7 +59,7 @@ There are two main reasons for this design decision:
 
 ## Todo
 
-- Refactor the scss
+- Refactor the SCSS
 - Add better error handling
 - Add additional settings
 - More notification icon options and detailed tooltips
