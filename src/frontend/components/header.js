@@ -24,7 +24,8 @@ class Header extends React.Component {
 
 		const isReady = matchesState('ready', machineState);
 		const isRunning = matchesState('running', machineState);
-		const canStop = matchesState('running.analyzing', machineState) || matchesState('running.cleaning', machineState);
+		const canStop =
+			matchesState('running.analyzing', machineState) || matchesState('running.cleaning', machineState);
 
 		const CleanButton = (
 			<CtrlButton handleClick={runCallback} className="btn-primary" isDisabled={!isReady}>

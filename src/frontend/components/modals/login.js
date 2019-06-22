@@ -20,7 +20,14 @@ const TokenInput = ({ value, onChange, error }) => (
 
 const EulaCheckbox = ({ value, onChange }) => (
 	<div className="form-group custom-control custom-checkbox">
-		<input type="checkbox" className="custom-control-input" name="eula" id="eula" onChange={onChange} checked={value} />
+		<input
+			type="checkbox"
+			className="custom-control-input"
+			name="eula"
+			id="eula"
+			onChange={onChange}
+			checked={value}
+		/>
 		<label className="custom-control-label" htmlFor="eula">
 			I have read and agree to the terms of the Discord Cleaner License Agreement.{' '}
 			<a href={`${GITHUB_URL}/blob/master/LICENSE.md`} target="_blank" rel="noopener noreferrer">
@@ -109,11 +116,17 @@ class LoginDialog extends React.Component {
 							<TokenInput value={token} onChange={this.handleInputChange} error={error} />
 							<EulaCheckbox value={eula} onChange={this.handleInputChange} />
 							<div className="form-group">
-								<input type="submit" className="btn btn-primary btn-block" value="Set Token" disabled={!canSubmit} />
+								<input
+									type="submit"
+									className="btn btn-primary btn-block"
+									value="Set Token"
+									disabled={!canSubmit}
+								/>
 							</div>
 						</form>
 						<div className="text-danger">
-							Using this app may result in account termination, data loss, and other damages. Use at your own risk.
+							Using this app may result in account termination, data loss, and other damages. Use at your
+							own risk.
 						</div>
 					</div>
 				</div>

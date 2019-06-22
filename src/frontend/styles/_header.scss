@@ -1,17 +1,16 @@
 .header-wrapper {
-  padding: 0.5rem 0;
+	padding: 0.5rem 0;
 }
 
-
 .btn-ctrl {
-  min-width: 90px;
-  max-width: 90px;
+	min-width: 90px;
+	max-width: 90px;
 
-  & + & {
-    margin-left: 0.5rem;
-  }
+	& + & {
+		margin-left: 0.5rem;
+	}
 }
 
 .btn-settings {
-   float: right;
- }
+	float: right;
+}
