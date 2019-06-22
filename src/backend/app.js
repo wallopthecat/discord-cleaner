@@ -244,11 +244,22 @@ class App {
 	/** Functions **/
 
 	async checkUpdate() {
-		try {
-			//const github = await axios.get(`${GITHUB_API_URL}/releases/latest`); //TODO uncomment this out
-			//return github.data.tag_name === VERSION;
-			return true;
-		} catch (error) {
+		if (process.env.NODE_ENV === 'production') {
+			try {
+				const github = await axios.get(`${GITHUB_API_URL}/releases/latest`);
+				if (github.data.tag_name === VERSION) {
+					console.log('Discord Cleaner is up to date');
+					return true;
+				} else {
+					console.log('Discord Cleaner requires an update');
+					return false;
+				}
+			} catch (error) {
+				console.error('Update check failed');
+				return true; // proceed regardless
+			}
+		} else {
+			console.log('Skipping update check in dev mode');
 			return true;
 		}
 	}

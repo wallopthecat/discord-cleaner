@@ -12,7 +12,7 @@ const UpdateDialog = () => {
 				</div>
 				<div className="modal-body">
 					There is a new version available: Please check{' '}
-					<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="text-success">
+					<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
 						GitHub
 					</a>
 				</div>
