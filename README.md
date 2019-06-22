@@ -4,7 +4,7 @@
 </p>
 <h2 align="center">Discord Cleaner</h2>
 
-Discord Cleaner is a free and open-source tool that can clean your messages. It can remove your messages across Discord - providing you with more control over your privacy and personal information. This application was developed for educational purposes.
+Discord Cleaner is a free and open-source tool that can clean your messages. It can remove your messages across Discord - providing you with more control over your privacy and personal information. This application was developed for educational purposes and to demonstrate technical proficiency.
 
 **WARNING: Using this app may result in account termination, data loss, and other damages. Use at your own risk.**
 
@@ -14,7 +14,7 @@ Discord Cleaner is a free and open-source tool that can clean your messages. It 
 
 ## Preamble
 
-We're currently in the midst of a data-privacy crisis. For example, the recent Equifax data breach may have affected nearly half the US population. In response to this growing threat, numerous regulatory measures are being introduced. [Article 17](http://www.privacy-regulation.eu/en/article-17-right-to-erasure-%27right-to-be-forgotten%27-GDPR.htm) of the EU's General Data Protection Regulations (GDPR) codified a data subject's right to erasure. Public support for the "right to be forgotten," is widespread and similar legislation is being introduced in the US. Overall, the goal is clear: users should have the ability to control their data and protect their right to privacy.
+We're currently in the midst of a data-privacy crisis. For example, the recent Equifax data breach may have affected nearly half the US population. In response to this growing threat, numerous regulatory measures are being introduced. [Article 17](http://www.privacy-regulation.eu/en/article-17-right-to-erasure-%27right-to-be-forgotten%27-GDPR.htm) of the EU's General Data Protection Regulations (GDPR) codified a data subject's right to erasure. Public support for the "right to be forgotten" is widespread; similar legislation is being introduced in the US. Overall, the goal is clear: users should have the ability to control their data and protect their right to privacy.
 
 ## Features
 
