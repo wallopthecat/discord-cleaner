@@ -8,6 +8,8 @@ Discord Cleaner is a free and open-source tool that can clean your messages. It 
 
 **WARNING: Using this app may result in account termination, data loss, and other damages. Use at your own risk.**
 
+![Discord Cleaner Screenshot](https://user-images.githubusercontent.com/46288829/59959817-70c80600-948c-11e9-8ab8-5e549094d3c3.png)
+
 ###### *All product names, logos, and brands are property of their respective owners. All company, product and service names used in this software are for identification purposes only.*
 
 ## Preamble
