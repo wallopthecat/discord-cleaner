@@ -88,10 +88,4 @@ input[type="checkbox"]:checked, input[type="checkbox"]:indeterminate {
 	&:not(:first-child) {
 		border-top: 1px solid #484c52;
 	}
-
-	& > .rct-text {
-		.rct-title {
-			text-transform: uppercase;
-		}
-	}
 }
