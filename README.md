@@ -12,10 +12,6 @@ Discord Cleaner is a free and open-source tool that can clean your messages. It 
 
 ###### *All product names, logos, and brands are property of their respective owners. All company, product and service names used in this software are for identification purposes only.*
 
-## Preamble
-
-We're currently in the midst of a data-privacy crisis. For example, the recent Equifax data breach may have affected nearly half the US population. In response to this growing threat, numerous regulatory measures are being introduced. [Article 17](http://www.privacy-regulation.eu/en/article-17-right-to-erasure-%27right-to-be-forgotten%27-GDPR.htm) of the EU's General Data Protection Regulations (GDPR) codified a data subject's right to erasure. Public support for the "right to be forgotten" is widespread; similar legislation is being introduced in the US. Overall, the goal is clear: users should have the ability to control their data and protect their right to privacy.
-
 ## Features
 
 - Choose the specific servers, groups, and direct messages you want to clear
@@ -31,8 +27,16 @@ Download the latest [Discord Cleaner executable](https://github.com/mcuppi/disco
 
 The portable executable was created using [Enigma Virtual Box](https://enigmaprotector.com/en/aboutvb.html).
 
+### Requirements
+
+Discord Cleaner has the following runtime requirements:
+
+- Windows 8.1 (or newer) (64-bit systems only)
+- Chrome 75, Firefox 67, or Edge 44 (or newer)
+
 ## Setup
 
+### Token
 Discord Cleaner requires your authentication token to access your Discord account. To find your token you can use this guide: [How to Find Your Discord Token](https://discordhelp.net/discord-token).
 
 **WARNING: Anyone who knows your Discord token has full access to your account. Do not share it with anyone.**
@@ -40,6 +44,11 @@ Discord Cleaner requires your authentication token to access your Discord accoun
 Discord Cleaner will not remember or save your token. You will be asked for it every time you relaunch the program.
 
 *Even though I've taken steps to secure the application, there is always the chance that using Discord Cleaner could result in your token being compromised. If you're uncomfortable with this possibility, do not use the application.*
+
+### Settings
+
+Discord Cleaner will save your settings (e.g. selected channels, message age limits) to a `config.json` file in the directory the program was started. You can delete this file to reset your settings.
+
 
 ## Build Instructions
 
