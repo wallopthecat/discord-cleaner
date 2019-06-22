@@ -4,7 +4,7 @@
 </p>
 <h2 align="center">Discord Cleaner</h2>
 
-Discord Cleaner is a free and open-source tool to clean your messages. It can remove your messages across Discord - providing you with more control over your privacy and personal information. This application was developed for educational purposes.
+Discord Cleaner is a free and open-source tool that can clean your messages. It can remove your messages across Discord - providing you with more control over your privacy and personal information. This application was developed for educational purposes.
 
 **WARNING: Using this app may result in account termination, data loss, and other damages. Use at your own risk.**
 
@@ -42,6 +42,26 @@ Discord Cleaner requires your authentication token to access your Discord accoun
 Discord Cleaner will not remember or save your token. You will be asked for it every time you relaunch the program.
 
 *Even though I've taken steps to secure the application, there is always the chance that using Discord Cleaner could result in your token being compromised. If you're uncomfortable with this possibility, do not use the application.*
+
+## Build Instructions
+
+1. Clone the repo and and install the npm dependencies:
+
+```sh
+npm install
+```
+
+2. Then run the webpack build script:
+
+```sh
+npm run build
+```
+
+3. Once webpack is finished bundling the files, you can start the app using the run script:
+
+```sh
+npm run start
+```
 
 ## Development Philosophy
   
