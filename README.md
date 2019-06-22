@@ -23,8 +23,6 @@ We're currently in the midst of a data-privacy crisis. For example, the recent E
 
 ## Installing
 
-### Windows
-
 Download the latest [Discord Cleaner executable](https://github.com/mcuppi/discord-cleaner/releases/latest). The pre-compiled executable is for 64-bit Windows systems only. Discord Cleaner will check for updates using the GitHub API, but it will not automatically update. You can also download the source code and build the application yourself.
 
 *You are required to read and agree to the [license](https://github.com/mcuppi/discord-cleaner/blob/master/LICENSE.md) before downloading.*
