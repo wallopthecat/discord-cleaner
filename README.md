@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="192" height="192" src="https://user-images.githubusercontent.com/46288829/59956401-19ab3c80-945e-11e9-965c-3dd65fd0d91f.png">
+  <img width="128" height="128" src="https://user-images.githubusercontent.com/46288829/59956401-19ab3c80-945e-11e9-965c-3dd65fd0d91f.png">
 </p>
 <h2 align="center">Discord Cleaner</h2>
 
@@ -23,15 +23,13 @@ We're currently in the midst of a data-privacy crisis. For example, the recent E
 
 ## Installing
 
-I strongly encourage users to review the source code. If you do not want to build the app yourself, you can download the latest pre-compiled release:
+### Windows
 
-[release](https://github.com/mcuppi/discord-cleaner/releases/latest).
+Download the latest [Discord Cleaner executable](https://github.com/mcuppi/discord-cleaner/releases/latest). The pre-compiled executable is for 64-bit Windows systems only. Discord Cleaner will check for updates using the GitHub API, but it will not automatically update. You can also download the source code and build the application yourself.
 
 *You are required to read and agree to the [license](https://github.com/mcuppi/discord-cleaner/blob/master/LICENSE.md) before downloading.*
 
 The portable executable was created using [Enigma Virtual Box](https://enigmaprotector.com/en/aboutvb.html).
-
-Discord Cleaner will check for updates using the GitHub API, but it will not automatically update. It will only inform you when a new release is available.
 
 ## Setup
 
