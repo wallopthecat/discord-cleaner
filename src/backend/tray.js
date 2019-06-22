@@ -112,7 +112,7 @@ class Tray {
 		let text;
 		if (deletedMessages > 0) {
 			const noun = deletedMessages === 1 ? 'message' : 'messages';
-			text = `${deletedMessages} ${noun} deleted`;
+			text = `${deletedMessages.toLocaleString()} ${noun} deleted`;
 		} else {
 			text = `No messages could be deleted`;
 		}
