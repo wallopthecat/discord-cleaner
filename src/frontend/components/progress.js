@@ -1,13 +1,13 @@
 import React from 'react';
 import { matchesState } from 'xstate';
 
-import { VERSION, RATE_LIMIT } from '../../constants.js';
+import { RATE_LIMIT } from '../../constants.js';
 import { AppContext } from './app-context.js';
 
 const IconIndicator = ({ machineState }) => {
 	if (matchesState('running', machineState)) {
 		if (matchesState('running.stopping', machineState)) {
-			return <i className="mdi mdi-48px mdi-pause-octagon-outline text-danger"/>;
+			return <i className="mdi mdi-48px mdi-pause-octagon-outline text-danger" />;
 		}
 
 		return <i className="mdi mdi-48px mdi-loading mdi-spin text-primary" />;

@@ -25,6 +25,8 @@
 	],
 	"rules": {
 		"no-console": "off",
+		"array-element-newline": ["error", "consistent"],
+		"no-constant-condition": ["error", { "checkLoops": false }],
 		"react/prop-types": 0
 	}
 }

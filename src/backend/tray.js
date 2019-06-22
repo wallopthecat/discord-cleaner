@@ -16,7 +16,11 @@ const MenuID = {
 	OPEN: 2
 };
 
-const trayMenu = new Menu([{ id: MenuID.OPEN, text: 'Open' }, { separator: true }, { id: MenuID.EXIT, text: 'Quit' }]);
+const trayMenu = new Menu([
+	{ id: MenuID.OPEN, text: 'Open' }, // open interface
+	{ separator: true },
+	{ id: MenuID.EXIT, text: 'Quit' } // quit program
+]);
 
 let BROWSER = ['']; // use default browser
 if (isChromeInstalled()) {
@@ -65,7 +69,7 @@ class Tray {
 		});
 	}
 
-	onSelect({ target, rightButton, mouseX, mouseY }) {
+	onSelect({ rightButton, mouseX, mouseY }) {
 		if (rightButton) {
 			this.handleMenu(mouseX, mouseY);
 		} else {
