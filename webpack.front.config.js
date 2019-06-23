@@ -27,16 +27,26 @@ module.exports = {
 			},
 			{
 				test: /\.(html)$/,
-				loader: "file-loader?name=[name].[ext]"
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+				}
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg|ico)$/,
-				loader: "file-loader?name=/imgs/[name].[ext]",
-				exclude: [/font\.svg$/] // try to exclude svg web fonts
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					outputPath: 'images',
+				}
 			},
 			{
-				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: "file-loader?name=/fonts/[name].[ext]"
+				test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+				loader: 'file-loader',
+				options: {
+					name: '[name].[ext]',
+					outputPath: 'fonts',
+				}
 			}
 		]
 	},

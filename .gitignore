@@ -36,8 +36,9 @@ build/Release
 dist/
 .idea/
 build/
-*.evb
 *.exe
+*.iss
+setup/
 
 # Dependency directories
 node_modules/

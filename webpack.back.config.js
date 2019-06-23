@@ -16,11 +16,11 @@ module.exports = {
 		rules: [
 			{
 				test: /\.node$/,
-				loader: "native-ext-loader"
+				loader: 'native-ext-loader'
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg|ico)$/,
-				loader: "file-loader?name=[name].[ext]"
+				loader: 'file-loader?name=[name].[ext]'
 			},
 		]
 	},
