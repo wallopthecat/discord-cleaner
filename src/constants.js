@@ -1,12 +1,9 @@
+// Shared constants between front-end and back-end
+
 export const VERSION = 'v1.0.0';
 export const GITHUB_REPO = 'mcuppi/discord-cleaner';
 export const GITHUB_API_URL = `https://api.github.com/repos/${GITHUB_REPO}`;
 export const GITHUB_URL = `https://github.com/${GITHUB_REPO}`;
-
-export const DEFAULT_CONFIG = {
-	limit: 14,
-	selected: []
-};
 
 export const RATE_LIMIT = 2000;
 

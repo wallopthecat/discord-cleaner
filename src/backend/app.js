@@ -1,9 +1,10 @@
 import fs from 'fs';
+import path from 'path';
+
 import axios from 'axios';
 import { Machine, interpret } from 'xstate';
 
-import { VERSION, GITHUB_API_URL, DEFAULT_CONFIG, ChannelType } from '../constants.js';
-
+import { VERSION, GITHUB_API_URL, ChannelType } from '../constants.js';
 import { HOST, PORT, httpServer, wss } from './server.js';
 import { discord } from './discord.js';
 import { log } from './log.js';
@@ -12,6 +13,16 @@ import { gc } from './gc.js';
 
 // windows only
 import { tray } from './tray.js';
+
+// config constants
+const CONFIG_FILENAME = 'config.json';
+const CONFIG_DIR = 'Discord Cleaner';
+const CONFIG_BASEPATH = process.env.APPDATA ? path.join(process.env.APPDATA, CONFIG_DIR) : __dirname;
+const CONFIG_PATH = path.join(CONFIG_BASEPATH, CONFIG_FILENAME);
+const DEFAULT_CONFIG = {
+	limit: 14,
+	selected: []
+};
 
 class App {
 	constructor() {
@@ -118,7 +129,7 @@ class App {
 	}
 
 	onRun() {
-		this.saveConfig();
+		this.saveConfig(); // fire and forget
 	}
 
 	/** Shredder Control **/
@@ -324,21 +335,25 @@ class App {
 
 	loadConfig() {
 		try {
-			const config = JSON.parse(fs.readFileSync('config.json'));
+			const config = JSON.parse(fs.readFileSync(CONFIG_PATH));
 			return Object.assign({}, DEFAULT_CONFIG, config);
 		} catch (err) {
 			return DEFAULT_CONFIG;
 		}
 	}
 
-	saveConfig() {
+	async saveConfig() {
 		try {
 			const config = {
 				limit: shredder.limit,
 				selected: this.selected
 			};
 
-			fs.writeFileSync('config.json', JSON.stringify(config, null, '\t'));
+			if (!fs.existsSync(CONFIG_BASEPATH)) {
+				fs.mkdirSync(CONFIG_BASEPATH);
+			}
+
+			fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, '\t'));
 		} catch (err) {
 			console.error(err);
 		}
