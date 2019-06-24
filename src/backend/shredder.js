@@ -178,12 +178,9 @@ class Shredder extends EventEmitter {
 
 				if (channel) {
 					this.updateProgress({ channel: channel, count: ++this.progress.count });
-
-					let results = await this.getMessages(channel, options);
-					channel.messages = results.total_results;
-					totalMessages += results.total_results;
-
-					this.emit('channel-analyzed', channel);
+					const messageCount = await this.analyzeChannel(channel, options);
+					channel.messages = messageCount;
+					totalMessages += messageCount;
 				}
 
 				this.checkCancel();
@@ -208,6 +205,25 @@ class Shredder extends EventEmitter {
 		}
 	}
 
+	async analyzeChannel(channel, options) {
+		try {
+			const results = await this.getMessages(channel, options);
+			this.emit('channel-analyzed', channel, results.total_results);
+			return results.total_results;
+		} catch (error) {
+			if (error.response) {
+				const status = error.response.status;
+				if (status === 202 || status === 403) {
+					channel.messages = 0;
+					this.emit('skipping', channel);
+					return 0;
+				}
+			}
+
+			throw error;
+		}
+	}
+
 	async startClean(context) {
 		const { channels, selected } = context;
 
@@ -219,7 +235,7 @@ class Shredder extends EventEmitter {
 
 				if (channel && channel.messages) {
 					this.updateProgress({ channel: channel });
-					deletedMessages += await this.shredChannel(channel);
+					deletedMessages += await this.cleanChannel(channel);
 				}
 
 				gc(); // Improve RAM usage
@@ -238,7 +254,7 @@ class Shredder extends EventEmitter {
 		}
 	}
 
-	async shredChannel(channel) {
+	async cleanChannel(channel) {
 		let deletedMessages = 0;
 
 		let options = {

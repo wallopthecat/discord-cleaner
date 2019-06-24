@@ -10,6 +10,7 @@ class Log {
 
 		shredder.on('start', this.announceStart.bind(this));
 		shredder.on('stopped', this.announceStopped.bind(this));
+		shredder.on('skipping', this.announceSkip.bind(this));
 		shredder.on('analysis-complete', this.announceAnalysisComplete.bind(this));
 		shredder.on('cleaning-complete', this.announceCleaningComplete.bind(this));
 		shredder.on('channel-analyzed', this.announceChannelAnalyzed.bind(this));
@@ -48,12 +49,11 @@ class Log {
 		this.add(`Process stopped`);
 	}
 
-	announceChannelAnalyzed(channel) {
-		const total = channel.messages;
+	announceChannelAnalyzed(channel, totalMessages) {
 		const preposition = channel.type === ChannelType.DM ? 'with' : 'in';
-		if (total > 0) {
-			const noun = total === 1 ? 'message' : 'messages';
-			this.add(`Found ${total.toLocaleString()} possible ${noun} ${preposition} ${channel.name}`);
+		if (totalMessages > 0) {
+			const noun = totalMessages === 1 ? 'message' : 'messages';
+			this.add(`Found ${totalMessages.toLocaleString()} possible ${noun} ${preposition} ${channel.name}`);
 		} else {
 			this.add(`No messages found ${preposition} ${channel.name}`);
 		}
@@ -85,6 +85,10 @@ class Log {
 		} else {
 			this.add(`No messages could be deleted ${preposition} ${channel.name}`);
 		}
+	}
+
+	announceSkip(channel) {
+		this.add(`Error: Skipping ${channel.name}`, LogType.ERROR);
 	}
 
 	announceError(error) {
