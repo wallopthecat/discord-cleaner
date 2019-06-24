@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img width="128" height="128" src="https://user-images.githubusercontent.com/46288829/59956401-19ab3c80-945e-11e9-965c-3dd65fd0d91f.png">
+  <img width="128" height="128" src="https://github.com/mcuppi/discord-cleaner/blob/master/src/frontend/assets/imgs/favicons/favicon-128.png">
 </p>
 <h2 align="center">Discord Cleaner</h2>
 
