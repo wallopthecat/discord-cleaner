@@ -52,22 +52,9 @@ class Header extends React.Component {
 
 		return (
 			<React.Fragment>
-				<CtrlButton
-					label="Channels"
-					icon="mdi-menu"
-					onClick={menuCallback}
-					isDisabled={!isReady}
-				/>
-
-				<CtrlButton
-					label="Preview"
-					icon="mdi-magnify"
-					onClick={previewCallback}
-					isDisabled={!isReady}
-				/>
-
+				<CtrlButton label="Channels" icon="mdi-menu" onClick={menuCallback} isDisabled={!isReady} />
+				<CtrlButton label="Preview" icon="mdi-magnify" onClick={previewCallback} isDisabled={!isReady} />
 				{isRunning ? StopButton : CleanButton}
-
 				<CtrlButton
 					label="Settings"
 					icon="mdi-settings"
