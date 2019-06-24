@@ -178,9 +178,8 @@ class Shredder extends EventEmitter {
 
 				if (channel) {
 					this.updateProgress({ channel: channel, count: ++this.progress.count });
-					const messageCount = await this.analyzeChannel(channel, options);
-					channel.messages = messageCount;
-					totalMessages += messageCount;
+					channel.messages = await this.analyzeChannel(channel, options);
+					totalMessages += channel.messages;
 				}
 
 				this.checkCancel();
