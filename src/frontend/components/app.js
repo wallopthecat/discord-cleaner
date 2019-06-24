@@ -154,7 +154,7 @@ class App extends React.Component {
 
 					{showLogin ? <LoginDialog /> : null}
 					{showSettings ? <SettingsDialog closeCallback={this.toggleSettings} /> : null}
-					{showError ? <ErrorDialog message={this.state.error} /> : null}
+					{showError ? <ErrorDialog reason={this.state.error} /> : null}
 					{showUpdate ? <UpdateDialog /> : null}
 					{showSpinner ? <Spinner /> : null}
 				</div>

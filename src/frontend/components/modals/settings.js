@@ -40,7 +40,7 @@ const COLOR_STYLES = {
 			...styles,
 			color: '#b9bbbe',
 			backgroundColor: state.isSelected ? '#121315' : null,
-			'&:hover': {
+			'&:hover,&:active': {
 				backgroundColor: '#2a2c30'
 			}
 		};

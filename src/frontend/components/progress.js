@@ -5,17 +5,26 @@ import { RATE_LIMIT } from '../../constants.js';
 import { AppContext } from './app-context.js';
 
 const IconIndicator = ({ machineState }) => {
-	if (matchesState('running', machineState)) {
-		if (matchesState('running.stopping', machineState)) {
-			return <i className="mdi mdi-48px mdi-pause-octagon-outline text-danger" />;
-		}
+	let icon = 'mdi-help';
 
-		return <i className="mdi mdi-48px mdi-loading mdi-spin text-primary" />;
-	} else if (matchesState('ready', machineState)) {
-		return <i className="mdi mdi-48px mdi-checkbox-marked-circle-outline text-success" />;
-	} else {
-		return <i className="mdi mdi-48px mdi-help-circle-outline text-muted" />;
+	if (matchesState('ready', machineState)) {
+		icon = 'mdi-check';
+	} else if (matchesState('running', machineState)) {
+		if (matchesState('running.starting', machineState)) icon = 'mdi-dots-horizontal';
+		if (matchesState('running.stopping', machineState)) icon = 'mdi-pause';
+		if (matchesState('running.analyzing', machineState)) icon = 'mdi-magnify';
+		if (matchesState('running.cleaning', machineState)) icon = 'mdi-delete-outline';
 	}
+
+	return (
+		<div className="d-flex align-items-center justify-content-center">
+			<div
+				className="spinner-border"
+				style={{ borderRightColor: matchesState('running', machineState) ? 'transparent' : 'inherit' }}
+			/>
+			<i className={`mdi mdi-48px ${icon}`} />
+		</div>
+	);
 };
 
 const StatusIndicator = ({ name, status }) => {
@@ -26,16 +35,27 @@ const StatusIndicator = ({ name, status }) => {
 	);
 };
 
-function interpretStatus(machineState) {
-	if (matchesState('running', machineState)) {
+function getStateLabel(machineState) {
+	if (matchesState('ready', machineState)) {
+		return 'Ready';
+	} else if (matchesState('running', machineState)) {
 		if (matchesState('running.starting', machineState)) return 'Starting';
+		if (matchesState('running.stopping', machineState)) return 'Stopping';
 		if (matchesState('running.analyzing', machineState)) return 'Analyzing';
 		if (matchesState('running.cleaning', machineState)) return 'Cleaning';
-		if (matchesState('running.stopping', machineState)) return 'Stopping';
-	} else if (matchesState('ready', machineState)) {
-		return 'Ready';
 	} else {
 		return '...';
+	}
+}
+
+function getStateColor(machineState) {
+	if (matchesState('running', machineState)) {
+		if (matchesState('running.starting', machineState)) return 'light';
+		if (matchesState('running.analyzing', machineState)) return 'primary';
+		if (matchesState('running.cleaning', machineState)) return 'success';
+		if (matchesState('running.stopping', machineState)) return 'danger';
+	} else {
+		return 'muted';
 	}
 }
 
@@ -67,21 +87,22 @@ class Progress extends React.Component {
 		const percent = count ? (count / total) * 100 : 0;
 		const diff = (total - count) * RATE_LIMIT;
 		const time = new Date(diff).toISOString().substr(11, 8);
+		const color = getStateColor(machineState);
 
 		return (
 			<div className="progress-wrapper">
 				<div className="progress">
-					<div className="progress-bar bg-primary" style={{ width: `${percent}%` }} />
+					<div className={`progress-bar bg-${color}`} style={{ width: `${percent}%` }} />
 				</div>
 
 				<div className="card mt-3 p-3">
 					<div className="row">
-						<div className="col-md-2 progress-icon-wrapper d-flex align-items-center justify-content-center">
+						<div className={`col-md-2 progress-icon-wrapper d-flex justify-content-center text-${color}`}>
 							<IconIndicator machineState={machineState} />
 						</div>
 						<div className="col align-self-center">
 							<div className="row justify-content-start">
-								<StatusIndicator name={'Status'} status={interpretStatus(machineState)} />
+								<StatusIndicator name={'Status'} status={getStateLabel(machineState)} />
 								<StatusIndicator name={'Channel'} status={channel ? channel.name : '...'} />
 								<div className="w-100 d-xl-none" />
 								<StatusIndicator name={'Time remaining'} status={time} />

@@ -3,15 +3,20 @@ import { matchesState } from 'xstate';
 
 import { AppContext } from './app-context.js';
 
-const CtrlButton = ({ handleClick, isDisabled, children, className }) => (
+const CtrlButton = ({ icon, label, onClick, isDisabled, className }) => (
 	<button
 		type="button"
-		className={`btn btn-ctrl ${className ? className : ''}`}
-		onClick={handleClick}
+		className={`btn btn-ctrl ${className ? className : 'btn-secondary'}`}
+		onClick={onClick}
 		disabled={isDisabled}>
-		{children}
+		<i className={`mdi mdi-24px ${icon}`} />
+		<br /> {label}
 	</button>
 );
+
+function canStop(machineState) {
+	return matchesState('running.analyzing', machineState) || matchesState('running.cleaning', machineState);
+}
 
 class Header extends React.Component {
 	constructor(props) {
@@ -24,41 +29,52 @@ class Header extends React.Component {
 
 		const isReady = matchesState('ready', machineState);
 		const isRunning = matchesState('running', machineState);
-		const canStop =
-			matchesState('running.analyzing', machineState) || matchesState('running.cleaning', machineState);
 
 		const CleanButton = (
-			<CtrlButton handleClick={runCallback} className="btn-primary" isDisabled={!isReady}>
-				<i className="mdi mdi-24px mdi-broom" />
-				<br /> Clean
-			</CtrlButton>
+			<CtrlButton
+				label="Clean"
+				icon="mdi-broom"
+				onClick={runCallback}
+				isDisabled={!isReady}
+				className="btn-primary"
+			/>
 		);
 
 		const StopButton = (
-			<CtrlButton handleClick={runCallback} className="btn-danger" isDisabled={!canStop}>
-				<i className="mdi mdi-24px mdi-stop-circle-outline" />
-				<br /> Stop
-			</CtrlButton>
+			<CtrlButton
+				label="Stop"
+				icon="mdi-stop-circle-outline"
+				onClick={runCallback}
+				isDisabled={!canStop(machineState)}
+				className="btn-danger"
+			/>
 		);
 
 		return (
 			<React.Fragment>
-				<CtrlButton className="btn-secondary" handleClick={menuCallback}>
-					<i className="mdi mdi-24px mdi-format-list-checkbox" />
-					<br /> Channels
-				</CtrlButton>
+				<CtrlButton
+					label="Channels"
+					icon="mdi-menu"
+					onClick={menuCallback}
+					isDisabled={!isReady}
+				/>
 
-				<CtrlButton className="btn-secondary" handleClick={previewCallback} isDisabled={!isReady}>
-					<i className="mdi mdi-24px mdi-magnify" />
-					<br /> Preview
-				</CtrlButton>
+				<CtrlButton
+					label="Preview"
+					icon="mdi-magnify"
+					onClick={previewCallback}
+					isDisabled={!isReady}
+				/>
 
 				{isRunning ? StopButton : CleanButton}
 
-				<CtrlButton className="btn-settings btn-secondary" handleClick={settingsCallback} isDisabled={!isReady}>
-					<i className="mdi mdi-24px mdi-settings" />
-					<br /> Settings
-				</CtrlButton>
+				<CtrlButton
+					label="Settings"
+					icon="mdi-settings"
+					onClick={settingsCallback}
+					isDisabled={!isReady}
+					className="btn-secondary btn-settings"
+				/>
 			</React.Fragment>
 		);
 	}
